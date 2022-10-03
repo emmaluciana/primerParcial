@@ -1,0 +1,28 @@
+public class pizzas {
+    public static void main(String[] args) {
+        int pizza = 6;
+        int personas = 3;
+        int pizzasPorPersona = pizza/personas;
+
+        System.out.printf ("Si hay %d pizzas y %d personas, serian %d pizzas para cada una\n ",
+                pizza, personas, pizzasPorPersona);
+
+        String auto = "Ferrari" ;
+        Double velocidad = 90.3;
+        System.out.printf("Un %s se desplaza a %f Km/h\n" , auto, velocidad);
+
+
+        int precioleche = 120 ;
+        double preciojamon = 140.55;
+        int preciohuevo = 15 ;
+
+
+        System.out.println("Tenemos los precios de los siguientes productos:");
+        System.out.printf("Precio leche %d, precio jamon %f, precio huevo %d\n", precioleche, preciojamon, preciohuevo);
+
+        double preciototal = precioleche + preciojamon + preciohuevo;
+
+        System.out.printf("La suma total de estos productos es de %f", preciototal);
+
+    }
+}
