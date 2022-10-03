@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class AdivinaElNum {
+    private Scanner entrada = new Scanner(System.in);
+    private boolean juegoActivo = true;public void jugar ()  {
+        String nombreJug = obtenerNombreJug();
+        while (juegoActivo) {
+            int intentos = 0;
+            int min = 0;
+            int max = 100;
+            int numJuego = obtenerNumeroAleatorio(1, 100);
+
+            System.out.printf("%s, he escogido un numero entre el %d y %d, adivinalo\n", nombreJug, min, max);
+            int numjugador;
+
+            do {
+                numjugador = escogeNumero();
+                mensaje(numJuego, numjugador);
+                intentos++;
+            } while (numJuego != numjugador);
+            System.out.printf("Has ganado, intentos %d\n", intentos);
+            juegoActivo = jugarNuevamente();
+        }
+    }
+    private int obtenerNumeroAleatorio (int min, int max){
+        return min + (int) (Math.random() * ((max - min) + 1));
+    }
+    private String obtenerNombreJug () {
+        System.out.println("Hola, cual es tu nombre?");
+        String nombreJug = entrada.nextLine();
+        System.out.printf("Bienvenido %s, vamos a comenzar\n", nombreJug);
+        return nombreJug;
+    }
+    private int escogeNumero (){
+        System.out.println("Escoge un numero");
+        return entrada.nextInt();
+    }
+    private void mensaje(int numjuego, int numjugador) {
+        if (numjuego < numjugador) {
+            System.out.println("Muy alto, adivina otra vez");
+        } else if (numjuego > numjugador) {
+            System.out.println("Muy bajo, adivina otra vez");
+        }
+    }
+    private boolean jugarNuevamente() {
+        System.out.printf("Jugar nuevamente?\n 1. Si\n 2. No\n");
+        int respuesta = entrada.nextInt();
+        if (respuesta == 1 ) {
+            System.out.println("Genial, juguemos otra vez!");
+            return true;
+        } else {
+            System.out.println("Fin del juego, gracias por participar!");
+            return false;
+        }
+    }
+}
